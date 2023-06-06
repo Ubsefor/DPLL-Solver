@@ -8,23 +8,34 @@
 
 /* Begin PBXBuildFile section */
 		7E5D101C2A150F7500C1FF11 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E5D101B2A150F7500C1FF11 /* main.cpp */; };
+		7E5D10242A15107800C1FF11 /* solver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E5D10222A15107800C1FF11 /* solver.cpp */; };
+		7E5D112A2A15125F00C1FF11 /* fileworks.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E5D11282A15125F00C1FF11 /* fileworks.cpp */; };
+		7E72CB112A1B8C6600E47262 /* tests in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7E5D10252A1510C300C1FF11 /* tests */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		7E5D10162A150F7500C1FF11 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 16;
 			files = (
+				7E72CB112A1B8C6600E47262 /* tests in CopyFiles */,
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		7E5D10182A150F7500C1FF11 /* DPLL-Solver */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "DPLL-Solver"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E5D101B2A150F7500C1FF11 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		7E5D10222A15107800C1FF11 /* solver.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = solver.cpp; sourceTree = "<group>"; };
+		7E5D10232A15107800C1FF11 /* solver.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = solver.hpp; sourceTree = "<group>"; };
+		7E5D10252A1510C300C1FF11 /* tests */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tests; sourceTree = "<group>"; };
+		7E5D11282A15125F00C1FF11 /* fileworks.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = fileworks.cpp; sourceTree = "<group>"; };
+		7E5D11292A15125F00C1FF11 /* fileworks.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = fileworks.hpp; sourceTree = "<group>"; };
+		7E72CC122A1BA49A00E47262 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		7E9DBDDC2A1CBEEF00DB3A9E /* Products */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Products; path = DerivedData/Build/Products; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +53,7 @@
 			isa = PBXGroup;
 			children = (
 				7E5D101A2A150F7500C1FF11 /* DPLL-Solver */,
+				7E9DBDDC2A1CBEEF00DB3A9E /* Products */,
 				7E5D10192A150F7500C1FF11 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -57,7 +69,13 @@
 		7E5D101A2A150F7500C1FF11 /* DPLL-Solver */ = {
 			isa = PBXGroup;
 			children = (
+				7E5D10252A1510C300C1FF11 /* tests */,
 				7E5D101B2A150F7500C1FF11 /* main.cpp */,
+				7E5D10222A15107800C1FF11 /* solver.cpp */,
+				7E5D10232A15107800C1FF11 /* solver.hpp */,
+				7E5D11282A15125F00C1FF11 /* fileworks.cpp */,
+				7E5D11292A15125F00C1FF11 /* fileworks.hpp */,
+				7E72CC122A1BA49A00E47262 /* Makefile */,
 			);
 			path = "DPLL-Solver";
 			sourceTree = "<group>";
@@ -119,7 +137,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E5D10242A15107800C1FF11 /* solver.cpp in Sources */,
 				7E5D101C2A150F7500C1FF11 /* main.cpp in Sources */,
+				7E5D112A2A15125F00C1FF11 /* fileworks.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,9 +258,17 @@
 		7E5D10202A150F7500C1FF11 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "DPLL-Solver/DPLL-Solver.entitlements";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3CF49YC524;
 				ENABLE_HARDENED_RUNTIME = YES;
+				OTHER_CFLAGS = "";
+				OTHER_CPLUSPLUSFLAGS = (
+					"-flto",
+					"-O3",
+				);
+				"PRODUCT_BUNDLE_IDENTIFIER[sdk=macosx*]" = "com.ubsefor.dpll-solver";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -248,9 +276,17 @@
 		7E5D10212A150F7500C1FF11 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "DPLL-Solver/DPLL-Solver.entitlements";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3CF49YC524;
 				ENABLE_HARDENED_RUNTIME = YES;
+				OTHER_CFLAGS = "";
+				OTHER_CPLUSPLUSFLAGS = (
+					"-flto",
+					"-O3",
+				);
+				"PRODUCT_BUNDLE_IDENTIFIER[sdk=macosx*]" = "com.ubsefor.dpll-solver";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
